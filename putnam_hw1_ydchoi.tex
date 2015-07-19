@@ -1,0 +1,149 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips14submit_e,times}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+%\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\def\eQb#1\eQe{\begin{eqnarray*}#1\end{eqnarray*}}
+
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+\providecommand{\pb}[0]{\pagebreak}
+
+
+\newenvironment{claim}[1]{\par\noindent\underline{Claim:}\space#1}{}
+\newtheoremstyle{quest}{\topsep}{\topsep}{}{}{\bfseries}{}{ }{\thmname{#1}\thmnote{ #3}.}
+\theoremstyle{quest}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{question}{Question}
+\newtheorem*{exercise}{Exercise}
+\newtheorem*{challengeproblem}{Challenge Problem}
+\newtheorem*{solution}{Solution}
+\usepackage{verbatimbox}
+\usepackage{listings}
+\title{Putnam: Assignment I}
+
+
+\author{
+Youngduck Choi \\
+Courant Institute of Mathematical Sciences\\
+New York University \\
+\texttt{yc1104@nyu.edu} \\
+}
+
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\nipsfinalcopy % Uncomment for camera-ready version
+
+\begin{document}
+
+
+\maketitle
+
+\begin{abstract}
+Analysis problems
+\end{abstract}
+
+\section{Solutions to the problems}
+
+\begin{question}[1.1. Convergence of an Improper Integral]
+\end{question}
+\begin{solution}
+We wish to show that the given improper integral $\underset{B\to\infty}{\lim}\int_{0}^{B} sin(x)sin(x^2)dx$
+is convergent. Observe that $\int_{0}^{1} sin(x)sin(x^2) dx$ achieves a finite value,
+as the absolute values of the integrand over the interval $[0,1]$ 
+is bounded by $1$. Hence,
+it suffices to show that $\int_{1}^{B} sin(x)sin(x^2)dx$ is convergent. 
+We integrate $\int_{1}^{B} sin(x)sin(x^2)dx$ by parts. 
+To this end, we set $u=\dfrac{sin(x)}{2x}$ and 
+$dv = sin(x^2)2x dx$, so that $du = \dfrac{1}{2}(\dfrac{cos(x)}{x} - \dfrac{sin(x)}{x^2}) dx$ 
+and $v = -cos(x^2)$. It follows that
+\eQb
+\int_{1}^{B} sin(x)sin(x^{2}) dx &=& -\dfrac{sin(x)}{2x}cos(x^{2})|_{1}^{B} + \dfrac{1}{2}
+\int_{1}^{B} cos(x^{2})(\dfrac{cos(x)}{x} - \dfrac{sin(x)}{x^{2}})dx. \\
+\eQe
+Simplifying the second integral, we obtain
+\eQb
+\int_{1}^{B} sin(x)sin(x^{2}) dx &=& -\dfrac{sin(x)}{2x}cos(x^{2})|_{1}^{B} 
+- \dfrac{1}{2}\int_{1}^{B}\dfrac{sin(x)cos(x^2)}{x^{2}})dx \\
+&+& \dfrac{1}{2} \int_{1}^{B} \dfrac{cos(x)cos(x^2)}{x}dx. 
+\eQe
+As $B \to \infty$ we see that $-\dfrac{sin(x)}{2x}cos(x^2)|_{1}^{B}$ tends to $0$ and the 
+$\int_{1}^{B} \dfrac{sin(x)cos(x^2)}{x^2} dx$ can be shown to be absolutely convergent, thus
+convergent via the comparison test for improper integrals with $\dfrac{1}{2}\int_{1}^{B} 
+\dfrac{1}{x^2}dx$, it only remains to show that $\int_{1}^{B} \dfrac{cos(x)(cos(x^2)}{x}dx$
+term is convergent. We now integrate $\int_{1}^{B} \dfrac{cos(x)cos(x^2)}{x}dx$ by parts. 
+We set $u=\dfrac{cos(x)}{2x^2}$ and $dv = cos(x^2)2x dx$, so that 
+
+\pb
+
+$du = -\dfrac{1}{2}(\dfrac{sin(x)}{x^2} + \dfrac{2cos(x)}{x^3})dx $ 
+and $v = sin(x^2)$. It follows that
+\eQb
+\int_{1}^{B} \dfrac{cos(x)cos(x^2)}{x}dx = \dfrac{cos(x)}{2x^2}sin(x^2)|_{1}^{B} + 
+\dfrac{1}{2}\int_{1}^{B} sin(x^2)(\dfrac{sin(x)}{x^2} + \dfrac{2cos(x)}{x^3})dx. 
+\eQe
+Simplifying the second integral, we have
+\eQb
+\int_{1}^{B} \dfrac{cos(x)cos(x^2)}{x}dx &=& \dfrac{cos(x)}{2x^2}sin(x^2)|_{1}^{B} + 
+\dfrac{1}{2}\int_{1}^{B} \dfrac{sin(x^2)sin(x)}{x^2} \\
+&+& \int_{1}^{B}\dfrac{sin(x^2)cos(x)}{x^3}dx. 
+\eQe
+As $B \to \infty$, we see that $\dfrac{cos(x)}{2x^2}sin(x^2)|_1^B$ tends to $0$, and 
+both integrals can be shown to be absolutely convergent, thus convergent via the 
+comparison test with $\int_{1}^{B}\dfrac{1}{x^2}dx$ and 
+$\int_{1}^{B}\dfrac{1}{x^3}dx$ respectively. Therefore, we have proven that
+the improper integral $\underset{B \to \infty}{\lim}\int_{0}^{B} sin(x)sin(x^2)dx$ is
+convergent. $\qed$ 
+\end{solution}
+\bigskip
+
+\begin{question}
+\end{question}
+\begin{solution}
+We want to show that, for all integers $n > 1$, the following inequality holds:
+\eQb
+\dfrac{1}{2ne} < \dfrac{1}{e} - (1 - \dfrac{1}{n})^n < \dfrac{1}{ne}.
+\eQe
+Multiplying by $e$ and subtracting $1$ from all sides of the inequality we can 
+rewrite the inequality as 
+\eQb
+\dfrac{1}{2n} - 1 < -e(1 - \dfrac{1}{n})^n < \dfrac{1}{n} - 1.
+\eQe
+Multiplying by $-1$ and taking the log to all sides, we can again rewrite the 
+inequality as 
+\eQb
+log(1 - \dfrac{1}{2n}) > -1 + nlog(1 - \dfrac{1}{n}) > log(1 - \dfrac{1}{n}). 
+\eQe
+Now, we can rewrite the above inequality with the terms of 
+the Taylor expansion of $log(1 - x)$ as
+\eQb
+-\sum_{i=1}^{\infty} \dfrac{1}{i2^i n^i} > 
+-\sum_{i=1}^{\infty} \dfrac{1}{(i+1)n^i} >
+-\sum_{i=1}^{\infty} \dfrac{1}{in^i},
+\eQe
+which can be seen to hold as the inequality holds term by term. $\qed$
+  
+\end{solution}
+
+\end{document}

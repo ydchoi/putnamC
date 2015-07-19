@@ -31,7 +31,7 @@
 \newtheorem*{solution}{Solution}
 \usepackage{verbatimbox}
 \usepackage{listings}
-\title{Putnam: Assignment I}
+\title{Putnam: Assignment II}
 
 
 \author{
@@ -66,9 +66,38 @@ Analysis problems
 
 \section{Solutions to the problems}
 
-\begin{question}[1.1. Convergence of an Improper Integral]
+\begin{question}[]
 \end{question}
 \begin{solution}
-
+We wish to find the minimum value of the given expression:
+\eQb
+\dfrac{(x + \dfrac{1}{x})^6 - (x^6 + \dfrac{1}{x^6}) - 2}{(x+\dfrac{1}{x})^3 + 
+(x^3 + \dfrac{1}{x^3})},
+\eQe
+where $x > 0$. Observe that the following identity which follows from the
+difference of squares:
+\eQb
+((x+\dfrac{1}{x})^3 + (x^3 + \dfrac{1}{x^3}))((x+\dfrac{1}{x})^3 - (x^3 +
+\dfrac{1}{x^3})) &=& (x+\dfrac{1}{x})^6 - (x^3 + \dfrac{1}{x^3})^2 \\
+&=& (x+\dfrac{1}{x})^6 - (x^6 + \dfrac{1}{x^6}) -2.
+\eQe
+Dividing the both side of the identity by $(x+\dfrac{1}{x})^3 + (x^3 + 
+\dfrac{1}{x^3})$, we see that the given expression is equivalent to:
+\eQb
+(x+\dfrac{1}{x})^3 - (x^3 + \dfrac{1}{x^3}), 
+\eQe
+which can be further simplified to $3(x + \dfrac{1}{x})$. As $x>0$, by
+the AM-GM inequality we see that the minimum happens at $x=1$, thereby showing that
+the minimum of the given expression with $x>0$ is $3$. $\qed$ 
 \end{solution}
+
+\begin{question}
+\end{question}
+\begin{solution}
+We wish to show that $\prod_{i=1}^n \dfrac{a_i}{(a_i + b_i)}$ 
+\end{solution}
+
+
+
+
 \end{document}

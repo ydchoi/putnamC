@@ -94,7 +94,84 @@ the minimum of the given expression with $x>0$ is $3$. $\qed$
 \begin{question}
 \end{question}
 \begin{solution}
-We wish to show that $\prod_{i=1}^n \dfrac{a_i}{(a_i + b_i)}$ 
+We wish to show that 
+$(\prod_{i=1}^n a_i)^{\frac{1}{n}}+(\prod_{i=1}^n b_i)^
+{\frac{1}{n}} \leq (\prod_{i=1}^n (a_i + b_i))^{\frac{1}{n}}$
+Observe that the AM-GM inequality yields
+\eQb
+(\prod_{i=1}^{n} \dfrac{a_i}{a_i + b_i})^{\frac{1}{n}}
+&\leq& \dfrac{1}{n} \prod_{i=1}^{n} \dfrac{a_i}{a_i + b_i}, \\ 
+(\prod_{i=1}^{n} \dfrac{b_i}{a_i + b_i})^{\frac{1}{n}}
+&\leq& \dfrac{1}{n} \prod_{i=1}^{n} \dfrac{b_i}{a_i + b_i}.
+\eQe 
+Adding the two inequalities, we obtain
+\eQb
+(\prod_{i=1}^{n} \dfrac{a_i}{a_i + b_i})^{\frac{1}{n}} + 
+(\prod_{i=1}^{n} \dfrac{b_i}{a_i + b_i})^{\frac{1}{n}}
+&\leq& \dfrac{1}{n} \prod_{i=1}^{n} \dfrac{a_i + b_i}{a_i + b_i}.
+\eQe
+We observe that the RHS of the inequality simplifies to $1$. Multiplying
+the both sides by $(a_i + b_i)^{\frac{1}{n}}$, we get 
+\eQb
+(\prod_{i=1}^n a_i)^{\frac{1}{n}}+(\prod_{i=1}^n b_i)^
+{\frac{1}{n}} \leq (\prod_{i=1}^n (a_i + b_i))^{\frac{1}{n}},
+\eQe 
+as desired. $\qed$
+\end{solution}
+
+\begin{question}
+\end{question}
+\begin{solution}
+We wish to integrate $\int_{2}^{4} \dfrac{\sqrt{ln(9-x)}dx}{\sqrt{ln(9-x)} 
++ \sqrt{ln(x+3)}}$. We can rewrite the given integral as 
+\eQb
+\int_{-1}^{1} \dfrac{\sqrt{ln(6-x)}dx}{\sqrt{ln(6-x)} + \sqrt{ln(x+6)}}. 
+\eQe
+We can now separate the integral to two parts as
+\eQb
+\int_{0}^{1} \dfrac{\sqrt{ln(6-x)}dx}{\sqrt{ln(6-x)} + \sqrt{ln(x+6)}}
++  
+\int_{-1}^{0} \dfrac{\sqrt{ln(6-x)}dx}{\sqrt{ln(6-x)} + \sqrt{ln(x+6)}}.
+\eQe
+We now use the substitution $u = -x$, so that $du = -dx$ on the second integral.
+The integral becomes
+\eQb
+\int_{0}^{1} \dfrac{\sqrt{ln(6-x)}dx}{\sqrt{ln(6-x)} + \sqrt{ln(x+6)}}
++  
+\int_{0}^{1} \dfrac{\sqrt{ln(x+6)}dx}{\sqrt{ln(6+x)} + \sqrt{ln(x-6)}}.
+\eQe
+which can be simplifed to $\int_{0}^{1} 1dx = 1$. $\qed$
+\end{solution}
+
+\bigskip
+
+\begin{question}
+\end{question}
+\begin{solution}
+We want to show the following inequality: 
+\eQb
+\dfrac{(m+n)!}{(m+n)^{m+n}} < \dfrac{m!}{m^m}\dfrac{n!}{n^n}.
+\eQe
+such that $m$ and $n$ are positive integers. Multiplying both sides 
+by $\dfrac{(m+n)^{m+n}m^m n^n}{m!n!}$, we see that
+the given inequality is equivalent to
+\eQb
+\dfrac{m^m n^n (m+n)!}{m!n!} < (m+n)^{m+n}.
+\eQe
+We can rewrite the inequality in terms of combinations as 
+\eQb
+{m+n \choose m}m^m n^n < (m+n)^{m+n}.
+\eQe 
+We can see from the binomial identity that the RHS contains the LHS term as one 
+of its terms in the binomial expansion. As $m$ and $n$ are restricted
+to be positive integers, the RHS will always contain another term with the
+${m+n \choose 0}$ coffecient, hence acheiving a strict inequality. Hence,
+we have shown that the given equality holds.
+\end{solution}
+
+\begin{question}[1999-A3]
+\end{question}
+\begin{solution}
 \end{solution}
 
 
